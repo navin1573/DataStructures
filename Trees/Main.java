@@ -17,6 +17,7 @@ class TreeNode {
 }
 
 class Tree{
+  // preOrder
  public void preOrder(TreeNode head) {
    if(head==null) return;
    System.out.print(head.val+" ");
@@ -24,6 +25,7 @@ class Tree{
     preOrder(head.right);
     System.out.println();
  }
+  // postOrder
  public void postOrder(TreeNode head) {
    if(head==null) return;
    System.out.print(head.val +" ");
@@ -37,11 +39,11 @@ public class Main {
   public static void main(String[] args) {
     Tree t = new Tree();
    Scanner sc = new Scanner(System.in);
-   TreeNode root = new TreeNode(10);
-   root.left = new TreeNode(20);
-   root.right = new TreeNode(30);
-   root.left.left = new TreeNode(40);
-   root.left.right = new TreeNode(50);
+   TreeNode root = new TreeNode(23);
+   root.left = new TreeNode(45);
+   root.right = new TreeNode(78);
+   root.left.left = new TreeNode(9);
+   root.left.right = new TreeNode(100);
    System.out.println("preOrder");
    t.preOrder(root);
    System.out.println("postOrder");

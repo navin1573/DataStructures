@@ -23,14 +23,17 @@ class Node{
      tail.next = nn;
      tail = nn;
    }
+  // display
    public void display() {
      Node ptr = head;
     while(ptr!=null){
       System.out.print("["+ ptr.data + "]->");
       ptr = ptr.next;
     }
+    System.out.println("null");
     System.out.println("\n");
    }
+   // reverse
    public void reverse() {
     Node prev = null;
     Node temp = head;
@@ -46,6 +49,7 @@ class Node{
       System.out.print("["+ newHead.data + "]->");
       newHead = newHead.next;
     }
+    System.out.println("null");
     System.out.println("\n");
     }
    }

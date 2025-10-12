@@ -178,34 +178,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
---- ------------------------------------------------------------
---- WORKSPACES
---- ------------------------------------------------------------
--- Function to open a three split workspace
-local function open_three_split_workspace()
-  -- Close existing windows, start fresh with single window
-  vim.cmd('only')
-
-  -- Open first vertical split (left)
-  vim.cmd('vsplit')
-  -- Open second vertical split (right)
-  vim.cmd('vsplit')
-
-  -- Now you have three vertical splits
-
-  -- Optional: Open specific files or buffers in each window
-  local files = {"file1.txt", "file2.txt", "file3.txt"} -- modify as required
-
-  for i, f in ipairs(files) do
-    vim.api.nvim_set_current_win(vim.fn.win_getid(i))
-    vim.cmd('edit ' .. f)
-  end
-
-  -- Optional: adjust sizes (equal)
-  vim.cmd('wincmd =')
-end
-
-
 -- ─────────────────────────────────────────────────────────────
 -- UI SETTINGS
 -- ─────────────────────────────────────────────────────────────
@@ -403,36 +375,6 @@ vim.keymap.set("n", ",ji", function()
 end, { desc = "Compile and run Java with dynamic input file (Windows-safe, reuse buffer)" })
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/nvim")
 
-
-
--- ─────────────────────────────────────────────────────────────
--- OPTIONAL: Add to your lazy.nvim plugins section
--- ─────────────────────────────────────────────────────────────
-
--- Uncomment to add competitive programming plugin
---[[
-{
-  "xeluxee/competitest.nvim",
-  dependencies = "MunifTanjim/nui.nvim",
-  config = function()
-    require("competitest").setup({
-      runner_ui = {
-        interface = "split",
-      },
-      compile_command = {
-        java = { exec = "javac", args = { "$(FNAME)" } },
-      },
-      run_command = {
-        java = { exec = "java", args = { "$(FNOEXT)" } },
-      },
-    })
-  end,
-  ft = { "java" },
-},
---]]
--- ─────────────────────────────────────────────────────────────
--- KEYMAPS
--- ─────────────────────────────────────────────────────────────
 
 -- Press <Esc> in terminal to go to Normal mode
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
