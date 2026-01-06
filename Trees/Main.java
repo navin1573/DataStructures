@@ -17,37 +17,29 @@ class TreeNode {
 }
 
 class Tree{
-  // preOrder
- public void preOrder(TreeNode head) {
-   if(head==null) return;
-   System.out.print(head.val+" ");
-    preOrder(head.left);
-    preOrder(head.right);
-    System.out.println();
- }
-  // postOrder
- public void postOrder(TreeNode head) {
-   if(head==null) return;
-   System.out.print(head.val +" ");
-    postOrder(head.right);
-    postOrder(head.left);
-      System.out.println();
- }
+  public boolean inOrder(TreeNode root,int target){
+    if(root==null) return false;
+    inOrder(root.left,target);
+    if(root.val==target) return true;
+    inOrder(root.right,target);
+    return false;
+  }
 }
 
 public class Main {
   public static void main(String[] args) {
     Tree t = new Tree();
    Scanner sc = new Scanner(System.in);
-   TreeNode root = new TreeNode(23);
-   root.left = new TreeNode(45);
-   root.right = new TreeNode(78);
-   root.left.left = new TreeNode(9);
-   root.left.right = new TreeNode(100);
-   System.out.println("preOrder");
-   t.preOrder(root);
-   System.out.println("postOrder");
-   t.postOrder(root);
-
+   TreeNode n1 = new TreeNode(10);
+   n1.left = new TreeNode(20); 
+   n1.right = new TreeNode(30); 
+   n1.left.left = new TreeNode(40); 
+   n1.left.right= new TreeNode(50); 
+   n1.right.left= new TreeNode(60); 
+   n1.right.right= new TreeNode(70);
+   n1.left.right.right = new TreeNode(80);
+   n1.right.left.left = new TreeNode(90);
+    int target = sc.nextInt();
+    System.out.println(t.inOrder(n1,target));
   } 
 }
