@@ -27,6 +27,6 @@ public class prefixSum{
 
   }
     static int rangeQuery(int l,int r,int[] prefix){
-      return (l==0)?prefix[r]:prefix[r]-prefix[l-1];
+      return (l==0)?prefix[r]-prefix[l]:prefix[r]-prefix[l-1];
     }
 }

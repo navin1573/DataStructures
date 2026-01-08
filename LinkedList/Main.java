@@ -27,7 +27,7 @@ class Node{
    public void display() {
      Node ptr = head;
     while(ptr!=null){
-      System.out.print("["+ ptr.data + "]->");
+      System.out.print(ptr.data);
       ptr = ptr.next;
     }
     System.out.println("null");
@@ -43,13 +43,11 @@ class Node{
       prev = temp;
       temp = nex;
     }
-    System.out.println("After reversing \n");
     Node newHead = prev;
     while(newHead!=null){
-      System.out.print("["+ newHead.data + "]->");
+      System.out.print(newHead.data+ " ");
       newHead = newHead.next;
     }
-    System.out.println("null");
     System.out.println("\n");
     }
    }
@@ -64,8 +62,6 @@ public class Main {
       }
      ls.insert(val);;
    }
-   System.out.println("before reversing \n");
-   ls.display();
    ls.reverse();
 
   }
