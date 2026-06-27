@@ -1,7 +1,4 @@
 import java.util.*;
-import java.io.*;
-import java.lang.*;
-import java.math.*;
 
 public class removeDuplicatesSorted {
   public static int Solution(int[] arr) {

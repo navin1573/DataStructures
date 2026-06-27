@@ -7,7 +7,11 @@ public class FiboMemoization {
  public static void main(String[] args) {
    Map<Integer,Integer> cache = new HashMap<>();
    for(int i=0;i<=10;i++)
-   System.out.println(memo(i,cache));
+     memo(i,cache);
+    
+   for(int key:cache.keySet()){
+     System.out.println(key+" "+cache.get(key));
+   }
  }
  static int memo(int n,Map<Integer,Integer> cache){
    if(n<=1) return n;

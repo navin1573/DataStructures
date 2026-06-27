@@ -1,7 +1,4 @@
 import java.util.*;
-import java.io.*;
-import java.lang.*;
-import java.math.*;
 
 class StackGG {
   int[] arr = new int[999];

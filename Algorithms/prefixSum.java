@@ -21,12 +21,12 @@ public class prefixSum{
     for(int k=1;k<s;k++){
       prefix[k]=arr[k]+prefix[k-1];
     }
-    int ans = rangeQuery(i,j,prefix);
+    int ans = rangeQuery(i,2,prefix);
     System.out.println(ans);
     
 
   }
     static int rangeQuery(int l,int r,int[] prefix){
-      return (l==0)?prefix[r]-prefix[l]:prefix[r]-prefix[l-1];
+      return (l==0)?prefix[r]:prefix[r]-prefix[l-1];
     }
 }
