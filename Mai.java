@@ -5,14 +5,21 @@ import java.math.*;
 
 public class Mai {
  public static void main(String[] args) {
-   for(int i=0;i<=10;i++){
-  System.out.println(fib(i));
-}
- }
-
- static int fib(int n){
-   if(n==0) return 0;
-   if(n==1) return 1;
-   return fib(n-1)+fib(n-2);
+   int n = 100;
+  boolean[] prime = new boolean[n+1];
+  Arrays.fill(prime,true);
+  prime[0] = false;
+  prime[1] = false;
+  for(int i=2;i<=n;i++){
+    if(prime[i]){
+      for(int j=i*i;j<=n;j+=i){
+        prime[j]= false;
+      }
+    }
+  }
+  for(int i=0;i<=n;i++){
+    if(prime[i])
+    System.out.print(i+" ");
+  }
  }
 }

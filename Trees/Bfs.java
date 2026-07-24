@@ -38,6 +38,8 @@ public class Bfs{
     System.out.println("BFS DEPTH: " + res5);
     TreeNode res6 = successor(root,5);
     System.out.println("BFS SUCCESSOR: " +(res6!=null?res6.val:"null"));
+
+    iterativePostOrder(root);
   }
 
   // BFS REVERSE
@@ -80,6 +82,27 @@ public class Bfs{
     }
     return ans;
   }
+
+  // POST ORDER iterative 
+
+  
+ static void iterativePostOrder(TreeNode root){
+    Stack<TreeNode> st = new Stack<>();
+    Stack<Boolean> vis = new Stack<>();
+    st.push(root);
+    vis.push(false);
+    while(!st.isEmpty()){
+      TreeNode cur = st.pop();
+      boolean seen = vis.pop();
+      if(cur==null) continue;
+      if(seen)  System.out.println(cur.val+" ");
+      else {
+        st.push(cur); vis.push(true);
+        st.push(cur.right); vis.push(false);
+        st.push(cur.left); vis.push(false);
+      }
+    }
+ }
   // BFS  ZIG ZAG
   static List<List<Integer>> bfsZig(TreeNode root){
    List<List<Integer>> ans = new LinkedList<>();
