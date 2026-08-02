@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main{
+public class IncreasingArray{
 
     static class FastReader {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,31 +30,19 @@ public class Main{
     public static void main(String[] args) throws Exception {
         sc = new FastReader();
         out = new PrintWriter(System.out);
-        int t = sc.nextInt();
-        while(t-->0){
-        String s = sc.next();
-        int zero = s.indexOf('0');
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<s.length();i++){
-           if(i!=zero)
-             sb.append(s.charAt(i));
-          }
-          int one = -1;
-          for(int i=0;i<sb.length();i++){
-            if(sb.charAt(i)=='1'){
-              one =i;
-              break;
-            }
-          }
-          StringBuilder ans = new StringBuilder();
-          for(int j=0;j<sb.length();j++){
-            if(j!=one){
-              ans.append(sb.charAt(j));
-            }
-          }
-          out.println(ans);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+          arr[i]=sc.nextInt();
         }
+        long ans =0;
+        for(int i=1;i<n;i++){
+          if(arr[i]<arr[i-1]){
+            ans+=arr[i-1]-arr[i];
+            arr[i]=arr[i-1];
+          }
+        }
+        out.println(ans);
         out.flush();
-        }
-    
     }
+}

@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main{
+public class A{
 
     static class FastReader {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

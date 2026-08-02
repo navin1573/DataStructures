@@ -1,7 +1,8 @@
+
 import java.util.*;
 import java.io.*;
 
-public class Main{
+public class StonesOnTable {
 
     static class FastReader {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,36 +26,19 @@ public class Main{
             return br.readLine();
         }
     }
-    static FastReader sc;
     static PrintWriter out;
+    static FastReader sc;
     public static void main(String[] args) throws Exception {
-        sc = new FastReader();
-        out = new PrintWriter(System.out);
-        int t = sc.nextInt();
-        while(t-->0){
-        String s = sc.next();
-        int zero = s.indexOf('0');
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<s.length();i++){
-           if(i!=zero)
-             sb.append(s.charAt(i));
-          }
-          int one = -1;
-          for(int i=0;i<sb.length();i++){
-            if(sb.charAt(i)=='1'){
-              one =i;
-              break;
-            }
-          }
-          StringBuilder ans = new StringBuilder();
-          for(int j=0;j<sb.length();j++){
-            if(j!=one){
-              ans.append(sb.charAt(j));
-            }
-          }
-          out.println(ans);
-        }
-        out.flush();
-        }
-    
+         sc= new FastReader();
+         out = new PrintWriter(System.out);
+         int n = sc.nextInt();
+         String s = sc.next();
+         char[] arr = s.toCharArray();
+         int ans=0;
+         for(int i=1;i<arr.length;i++){
+           if(arr[i]==arr[i-1]) ans++;
+         }
+      out.println(ans);
+      out.flush();
     }
+}

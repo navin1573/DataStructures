@@ -1,7 +1,8 @@
+
 import java.util.*;
 import java.io.*;
 
-public class Main{
+public class Panoramix {
 
     static class FastReader {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,36 +26,34 @@ public class Main{
             return br.readLine();
         }
     }
-    static FastReader sc;
     static PrintWriter out;
+    static FastReader sc;
     public static void main(String[] args) throws Exception {
-        sc = new FastReader();
-        out = new PrintWriter(System.out);
-        int t = sc.nextInt();
-        while(t-->0){
-        String s = sc.next();
-        int zero = s.indexOf('0');
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<s.length();i++){
-           if(i!=zero)
-             sb.append(s.charAt(i));
-          }
-          int one = -1;
-          for(int i=0;i<sb.length();i++){
-            if(sb.charAt(i)=='1'){
-              one =i;
-              break;
-            }
-          }
-          StringBuilder ans = new StringBuilder();
-          for(int j=0;j<sb.length();j++){
-            if(j!=one){
-              ans.append(sb.charAt(j));
-            }
-          }
-          out.println(ans);
+      sc = new FastReader();
+      out = new PrintWriter(System.out);
+      int n = sc.nextInt();
+      int m = sc.nextInt();
+      boolean[] prime=new boolean[51];
+      Arrays.fill(prime,true);
+      prime[0]=false;
+      prime[1]=false;
+      for(int i=2;i*i<=50;i++){
+      if(prime[i]){
+      for(int j=i*i;j<=50;j+=i){
+      prime[j]=false;
+      }
+      }
+      }
+      boolean flag = false;
+      for(int i=n+1;i<prime.length;i++){
+        if(prime[i]){
+          out.println((i==m)?"YES":"NO");
+          flag=true;
+          break;
         }
-        out.flush();
-        }
-    
+      }
+        if(flag==false)out.println("NO");
+      out.flush();
+      
     }
+  }

@@ -1,7 +1,8 @@
+
 import java.util.*;
 import java.io.*;
 
-public class Main{
+public class Repetitions{
 
     static class FastReader {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,31 +31,19 @@ public class Main{
     public static void main(String[] args) throws Exception {
         sc = new FastReader();
         out = new PrintWriter(System.out);
-        int t = sc.nextInt();
-        while(t-->0){
         String s = sc.next();
-        int zero = s.indexOf('0');
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<s.length();i++){
-           if(i!=zero)
-             sb.append(s.charAt(i));
-          }
-          int one = -1;
-          for(int i=0;i<sb.length();i++){
-            if(sb.charAt(i)=='1'){
-              one =i;
-              break;
-            }
-          }
-          StringBuilder ans = new StringBuilder();
-          for(int j=0;j<sb.length();j++){
-            if(j!=one){
-              ans.append(sb.charAt(j));
-            }
-          }
-          out.println(ans);
+        int ans=1;
+        int max=1;
+        for(int i=0;i<s.length()-1;i++){
+           if(s.charAt(i+1)==s.charAt(i)){
+             ans+=1;
+             max = Math.max(ans,max);
+           }
+           else{
+             ans=1;
+           }
         }
+        out.println(max);
         out.flush();
-        }
-    
     }
+}

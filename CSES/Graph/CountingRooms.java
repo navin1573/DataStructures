@@ -2,7 +2,7 @@
 import java.io.*;
 import java.util.*;
  
-public class CountingRooms {
+public class Main {
     static int n, m;
     static char[][] grid;
     static int[] dir = {-1, 0, 1, 0,-1};

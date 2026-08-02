@@ -1,7 +1,8 @@
+
 import java.util.*;
 import java.io.*;
 
-public class Main{
+public class NearlyLuckyNumber {
 
     static class FastReader {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -26,35 +27,23 @@ public class Main{
         }
     }
     static FastReader sc;
-    static PrintWriter out;
+    static PrintWriter out; 
     public static void main(String[] args) throws Exception {
         sc = new FastReader();
-        out = new PrintWriter(System.out);
-        int t = sc.nextInt();
-        while(t-->0){
-        String s = sc.next();
-        int zero = s.indexOf('0');
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<s.length();i++){
-           if(i!=zero)
-             sb.append(s.charAt(i));
-          }
-          int one = -1;
-          for(int i=0;i<sb.length();i++){
-            if(sb.charAt(i)=='1'){
-              one =i;
-              break;
-            }
-          }
-          StringBuilder ans = new StringBuilder();
-          for(int j=0;j<sb.length();j++){
-            if(j!=one){
-              ans.append(sb.charAt(j));
-            }
-          }
-          out.println(ans);
+        out= new PrintWriter(System.out);
+        long n = sc.nextLong();
+        int notSoLucky=0;
+        while(n>0){
+          long lastDigit = n%10;
+          if(lastDigit==4 || lastDigit==7)notSoLucky++;
+          n/=10;
         }
-        out.flush();
+        if(notSoLucky==4 || notSoLucky==7) {
+          out.println("YES");
+          out.flush();
+          return;
         }
-    
+          out.println("NO");
+          out.flush();
     }
+}
