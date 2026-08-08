@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main{
+public class UpperCase {
 
     static class FastReader {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,19 +31,17 @@ static PrintWriter out;
     public static void main(String[] args) throws Exception {
         sc = new FastReader();
         out = new PrintWriter(System.out);
-        int T =sc.nextInt();
-        while(T-->0){
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int n = sc.nextInt();
-            int ans = rec(a,b,n);
-            out.println(ans);
-        }
+        String str = sc.next();
+        int ans=rec(str,0); 
+        if(ans==-1) out.println("No char found");
+        else out.println(str.charAt(ans));
         out.flush();
     }
-    static int rec(int a,int b,int n){
-        if(n==0) return a;
-        if(n==1) return b;
-        return rec(a,b,n-1)^rec(a,b,n-2);
+    static int rec(String str,int st){
+       if(st==str.length()) return -1;
+
+       if(str.charAt(st)>='A' && str.charAt(st)<='Z')
+           return st;
+       return rec(str,st+1);
     }
 }
