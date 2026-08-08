@@ -1,25 +1,25 @@
 import java.util.*;
 import java.io.*;
-
-public class Main{
-
+ 
+public class A{
+ 
     static class FastReader {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
-
+ 
         String next() throws IOException {
             while (st == null || !st.hasMoreTokens()) {
                 st = new StringTokenizer(br.readLine());
             }
             return st.nextToken();
         }
-
+ 
         int nextInt() throws IOException { return Integer.parseInt(next()); }
         long nextLong() throws IOException { return Long.parseLong(next()); }
         double nextDouble() throws IOException { return Double.parseDouble(next()); }
         char nextChar() throws IOException { return next().charAt(0); }
         boolean nextBoolean() throws IOException { return Boolean.parseBoolean(next()); }
-
+ 
         String nextLine() throws IOException {
             st = null;
             return br.readLine();
@@ -31,32 +31,27 @@ public class Main{
         sc = new FastReader();
         out = new PrintWriter(System.out);
         int t = sc.nextInt();
+ 
         while(t-->0){
-          int n = sc.nextInt();
-          int[] arr = new int[n];
-          for(int i=0;i<n;i++){
-            arr[i]=sc.nextInt();
-          }
-          int sum=arr[0];
-          if(n==1){
-            out.println(sum);
-            out.flush();
-            continue;
-          }
-          int flag=-1;
-          for(int i=1;i<n;i++){
-            if(arr[i]==arr[i-1]){
-              sum+=arr[i];
-              out.println(sum);
-              flag=0;
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int[] arr = new int[3];
+        arr[0]=a;
+        arr[1]=b;
+        arr[2]=c;
+          int ans =0;
+          while(true){
+            Arrays.sort(arr);
+            if(arr[0]==arr[1] || arr[1]==arr[2]){
               break;
             }
-            else{
-              sum+=arr[i];
-            }
+            arr[0]++;
+            arr[2]--;
+            ans++;
           }
-          if(flag==-1)out.println(sum);
+          out.println(ans);
         }
-       out.flush();
+        out.flush();
         }
         }
