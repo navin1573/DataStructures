@@ -1,8 +1,7 @@
-
 import java.util.*;
 import java.io.*;
 
-public class Main{
+public class NGE {
 
     static class FastReader {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -11,7 +10,7 @@ public class Main{
         String next() throws IOException {
             while (st == null || !st.hasMoreTokens()) {
                 st = new StringTokenizer(br.readLine());
-}
+            }
             return st.nextToken();
         }
 
@@ -27,37 +26,25 @@ public class Main{
         }
     }
 
-    static FastReader sc;
-    static PrintWriter out;
+static FastReader sc;
+static PrintWriter out;
     public static void main(String[] args) throws Exception {
-        sc = new FastReader();
-        out = new PrintWriter(System.out);
-        int t = sc.nextInt();
-        while(t-->0){
-            long y = sc.nextLong();
-            long x = sc.nextLong();
-            long ans=0;
-            if(x>y){
-                if(x%2==1){
-                    ans+=(x*x)-(y-1);
-                }
-                else{
-                    ans+=(x-1)*(x-1)+y;
-                }
-            }
-            else{
-                if(y%2==1){
-                    ans+=(y-1)*(y-1)+x;
-                }
-                else{
-                    ans+=(y*y)-(x-1);
-                }
-
-            }
-            out.println(ans);
-            out.flush();
+    sc = new FastReader();
+    out = new PrintWriter(System.out);
+    int n = sc.nextInt();
+    int[] arr = new int[n];
+    for(int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+    }
+ int[] ans = new int[arr.length];
+        int max = 0;
+        Arrays.fill(ans,-1);
+        for(int i=arr.length-2;i>=0;i--){
+                ans[i]=Math.max(arr[i+1],max);
+                max=Math.max(arr[i+1],max);
+            
         }
-
+        out.println(Arrays.toString(ans));
+        out.flush();
     }
 }
-
