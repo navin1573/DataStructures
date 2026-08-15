@@ -1,14 +1,46 @@
 # DataStructures
 
 This repository contains implementations of various data structures and algorithms in Java.  
-
+![First Image](img/firstimg.png)
 ## Folders
 
-- `algorithms` - Algorithm implementations
-- `oops` - Object-oriented programming examples
-- `data-structures` - Implementations of different data structures
+  Algorithms
+  BackTracking
+  ★ Bit
+  contest
+  CSES
+  DP
+  Graph
+  LinkedList
+  lua
+  Main
+  MergeIntervals
+  Oops
+  Patterns
+  Recursion
+  SlidingWindow
+  Sorting
+  Stack
+  Trees
+  TwoPointers
 
-## Usage
+# NvChad Java Setup
 
-- Navigate to the relevant folder
-- Compile and run Java files using `javac` and `java`
+### Keymaps
+
+| Key | Action |
+|---|---|
+| `;` | Command mode |
+| `jk` | Exit insert mode |
+| `<SpaceBar><Enter>` | Compile & run Java |
+| `<SpaceBar>jp` | Java  template |
+| `<SpaceBar>jl` | LinkedList template |
+| `<SpaceBar>jt` | TreeNode template |
+| `<SpaceBar>ji` | Common Java imports |
+
+### Java Run
+
+`<SpaceBar><Enter>` compiles and runs the current Java file in a vertical terminal.
+
+Config: `lua/mappings.lua`
+
