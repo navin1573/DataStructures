@@ -1,46 +1,35 @@
 # DataStructures
 
-This repository contains implementations of various data structures and algorithms in Java.  
+Java implementations of data structures, algorithms, and competitive programming patterns.
+
 ![First Image](img/firstimg.png)
-## Folders
 
-  Algorithms
-  BackTracking
-  ★ Bit
-  contest
-  CSES
-  DP
-  Graph
-  LinkedList
-  lua
-  Main
-  MergeIntervals
-  Oops
-  Patterns
-  Recursion
-  SlidingWindow
-  Sorting
-  Stack
-  Trees
-  TwoPointers
+## Topics
 
-# NvChad Java Setup
+Algorithms · BackTracking · Bit · Contest · CSES · DP · Graph  
+LinkedList · Lua · Main · MergeIntervals · Oops · Patterns · Recursion  
+SlidingWindow · Sorting · Stack · Trees · TwoPointers
+
+## NvChad Java Setup
+
+A minimal NvChad setup for Java competitive programming.
 
 ### Keymaps
 
 | Key | Action |
-|---|---|
-| `;` | Command mode |
-| `jk` | Exit insert mode |
-| `<SpaceBar><Enter>` | Compile & run Java |
-| `<SpaceBar>jp` | Java  template |
-| `<SpaceBar>jl` | LinkedList template |
-| `<SpaceBar>jt` | TreeNode template |
-| `<SpaceBar>ji` | Common Java imports |
+|:---:|---|
+| `<Space><Enter>` | Compile & run Java |
+| `<Space>jp` | Java template |
+| `<Space>jl` | LinkedList template |
+| `<Space>jt` | TreeNode template |
+| `<Space>ji` | Common Java imports |
 
 ### Java Run
 
-`<SpaceBar><Enter>` compiles and runs the current Java file in a vertical terminal.
+`<Space><Enter>` compiles and runs the current Java file in a vertical terminal.
 
 Config: `lua/mappings.lua`
 
+## Theme
+
+[Catppuccin](https://github.com/catppuccin/nvim)
