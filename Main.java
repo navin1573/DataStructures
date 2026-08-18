@@ -1,63 +1,39 @@
 
 import java.util.*;
-import java.io.*;
 
 public class Main{
-
-    static class FastReader {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-
-        String next() throws IOException {
-            while (st == null || !st.hasMoreTokens()) {
-                st = new StringTokenizer(br.readLine());
-}
-            return st.nextToken();
+    static Deque<int[]> dq;
+    public static void main(String[] args) {
+        dq = new ArrayDeque<>();
+        int[] arr = {2,3,4,6,3,8,9,1};
+        for(int i:arr){
+           push(i); 
+        }System.out.println(
+    dq.stream()
+      .map(Arrays::toString)
+      .toList()
+);
+        System.out.println(getMin());System.out.println(
+    dq.stream()
+      .map(Arrays::toString)
+      .toList()
+);
+        dq.pop();
+        System.out.println(getMin());
         }
-
-        int nextInt() throws IOException { return Integer.parseInt(next()); }
-        long nextLong() throws IOException { return Long.parseLong(next()); }
-        double nextDouble() throws IOException { return Double.parseDouble(next()); }
-        char nextChar() throws IOException { return next().charAt(0); }
-        boolean nextBoolean() throws IOException { return Boolean.parseBoolean(next()); }
-
-        String nextLine() throws IOException {
-            st = null;
-            return br.readLine();
-        }
+    static void push(int ele){
+        int newmin = (dq.isEmpty())?ele:Math.min(ele,dq.peek()[1]);
+        dq.push(new int[]{ele,newmin});
+    }
+    static void pop(){
+       dq.pop(); 
+    }
+    static int top(){
+        return dq.peek()[0];
+    }
+    static int getMin(){
+        return dq.peek()[1];
     }
 
-    static FastReader sc;
-    static PrintWriter out;
-    public static void main(String[] args) throws Exception {
-        sc = new FastReader();
-        out = new PrintWriter(System.out);
-        int t = sc.nextInt();
-        while(t-->0){
-            long y = sc.nextLong();
-            long x = sc.nextLong();
-            long ans=0;
-            if(x>y){
-                if(x%2==1){
-                    ans+=(x*x)-(y-1);
-                }
-                else{
-                    ans+=(x-1)*(x-1)+y;
-                }
-            }
-            else{
-                if(y%2==1){
-                    ans+=(y-1)*(y-1)+x;
-                }
-                else{
-                    ans+=(y*y)-(x-1);
-                }
-
-            }
-            out.println(ans);
-            out.flush();
-        }
-
     }
-}
 
